@@ -24,7 +24,7 @@ module.exports = function() {
   var documentBody = document.querySelector('body');
 
   /**
-   * Selects açç the elements which will generate contents
+   * Selects all the elements which will generate contents
    * @return Array - list of selected elements
    */
   var selectElements = function() {
@@ -84,7 +84,7 @@ module.exports = function() {
   /**
    * Renders a container with type "video"
    * @param  Element el    - Link that'll configure a container
-   * @param  Integer index - Link's index to control the content 
+   * @param  Integer index - Link's index to control the content
    */
   var renderVideo = function(el, index) {
     el.addEventListener('click', function(event) {
@@ -104,7 +104,7 @@ module.exports = function() {
   /**
    * Renders a container with type "image"
    * @param  Element el    - Link that'll configure a container
-   * @param  Integer index - Link's index to control the content 
+   * @param  Integer index - Link's index to control the content
    */
   var renderImage = function(el, index) {
     el.addEventListener('click', function(event) {
