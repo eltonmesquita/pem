@@ -1,5 +1,5 @@
 /**
- * Classe desenvolvida para criar um contexto de eventos que renderizam containers de conteúdos customizados
+ * A small library to load dynamic content in a progressive enhanced way
  * @class
  */
 module.exports = function() {
@@ -11,21 +11,21 @@ module.exports = function() {
   var self = this;
 
   /**
-   * Variável global que guardará os elementos que servirão de base para a criação de containers
+   * Global variable that will hold the elements that will serve as a base for containers generation
    * @type Array
    */
   self.elements = [];
 
 
   /**
-   * Variável contendo o body do documento
+   * Document's' body
    * @type Object
    */
   var documentBody = document.querySelector('body');
 
   /**
-   * Função para selecionar todos os elementos que gerarão conteúdo customizado
-   * @return Array lista de elementos selecionados
+   * Selects açç the elements which will generate contents
+   * @return Array - list of selected elements
    */
   var selectElements = function() {
     self.elements = document.querySelectorAll('[data-content-type]');
@@ -33,8 +33,8 @@ module.exports = function() {
   };
 
   /**
-   * Função para destruir um container específico
-   * @param  Integer indexElement índice do container que será destruído
+   * Destroys a specific container
+   * @param  Integer indexElement - Index of the container to be destroyed
    */
   var destroyContainer = function(indexElement) {
     if(document.querySelectorAll('.container-content-overlay-'+indexElement).length) {
@@ -46,7 +46,7 @@ module.exports = function() {
   };
 
   /**
-   * Destroi todos os containers
+   * Destroy all containers
    */
   var destroyAll = function() {
     var containers = document.querySelectorAll('.container-content-overlay');
@@ -57,9 +57,9 @@ module.exports = function() {
   };
 
   /**
-   * Função para criar ou selecionar um container
-   * @param  Integer indexElement índice do container
-   * @return Element retorna um container
+   * Creates or generates a container
+   * @param  Integer indexElement - Container's index
+   * @return Element - returns a container
    */
   var generateContainer = function(indexElement) {
     if(document.querySelectorAll('.container-content-overlay-'+indexElement).length) {
@@ -82,9 +82,9 @@ module.exports = function() {
   };
 
   /**
-   * Renderiza um container com um conteúdo do tipo "vídeo"
-   * @param  Element el    link que configurará um container
-   * @param  Integer index index do link para controle de conteúdo
+   * Renders a container with type "video"
+   * @param  Element el    - Link that'll configure a container
+   * @param  Integer index - Link's index to control the content 
    */
   var renderVideo = function(el, index) {
     el.addEventListener('click', function(event) {
@@ -102,9 +102,9 @@ module.exports = function() {
   };
 
   /**
-   * Renderiza um container com um conteúdo do tipo "imagem"
-   * @param  Element el    link que configurará um container
-   * @param  Integer index index do link para controle de conteúdo
+   * Renders a container with type "image"
+   * @param  Element el    - Link that'll configure a container
+   * @param  Integer index - Link's index to control the content 
    */
   var renderImage = function(el, index) {
     el.addEventListener('click', function(event) {
@@ -121,9 +121,9 @@ module.exports = function() {
   };
 
   /**
-   * Renderiza um container com um conteúdo do tipo "página"
-   * @param  Element el    link que configurará um container
-   * @param  Integer index index do link para controle de conteúdo
+   * Renders a container with type "page"
+   * @param  Element el    - Link that'll configure a container
+   * @param  Integer index - Link's index to control the content
    */
   var renderPage = function(el, index) {
     el.addEventListener('click', function(event) {
@@ -151,9 +151,9 @@ module.exports = function() {
 
 
   /**
-   * Função genérica para rendirizar algum tipo de conteúdo
-   * @param  Element el    link que configurará um container
-   * @param  Integer index index do link para controle de conteúdo
+   * Renders the proper type of content
+   * @param  Element el    - Link that'll configure a container
+   * @param  Integer index - Link's index to control the content
    */
   var render = function(el, index) {
     switch(el.getAttribute('data-content-type')) {
@@ -172,7 +172,7 @@ module.exports = function() {
   };
 
   /**
-   * Função auto-executável que inicia a configuração do fluxo das funções
+   * Init the library
    */
   !(function() {
     var elements = selectElements();
