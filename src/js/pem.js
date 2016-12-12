@@ -5,7 +5,6 @@
 module.exports = function() {
 
   /**
-   * Encapsulamento do contexto principal para ser acessado nos contextos internos das funções
    * @type Object
    */
   var self = this;
@@ -18,7 +17,7 @@ module.exports = function() {
 
 
   /**
-   * Document's' body
+   * Document's body
    * @type Object
    */
   var documentBody = document.querySelector('body');
@@ -59,7 +58,7 @@ module.exports = function() {
   /**
    * Creates or generates a container
    * @param  Integer indexElement - Container's index
-   * @return Element - returns a container
+   * @return Element              - returns a container
    */
   var generateContainer = function(indexElement) {
     if(document.querySelectorAll('.container-content-overlay-'+indexElement).length) {
